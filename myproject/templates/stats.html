@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Brawler Stats</h1>
+<form method="POST">
+{{ form.hidden_tag() }}
+{{ form.submit() }}
+</form>
+    <p>Name: {{name}}</p>
+    <p>Player Tag: {{tag}}</p>
+    <p>Trophy Count: {{trophies}}</p>
+
+
+{% endblock %}

@@ -1,0 +1,8 @@
+myproject/config.py
+__pychache__/
+brawstar-env/
+migrations/
+data.sqlite
+/myproject/__pychache__
+*.pyc
+*.pyo
