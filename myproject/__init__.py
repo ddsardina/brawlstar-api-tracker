@@ -3,19 +3,23 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
-#cfrom myproject.config import dbpass
+#This import is used only for local PostgreSQL instances where DB password is stored in config.py
+#from myproject.config import dbpass
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'mysecretkey'
 ###Configuration for sqlite DB
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+#basedir = os.path.abspath(os.path.dirname(__file__))
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
 
-###Configuration for Postgresql DB
+###Configuration for local Postgresql DB
 #Create a Database called brawlstars, User: application, password stored in dbpass variable in config.py
 #app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://application:{dbpass}@localhost:5432/brawlstars'
+
+#Configuration to connect to Dockerized PSQL DB
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://flask_user:pass123word@db/flask_application"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 

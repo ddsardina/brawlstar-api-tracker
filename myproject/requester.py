@@ -20,10 +20,10 @@ def responsecode(playertag):
     response_code = requests.get(player_url,headers=auth_headers).status_code
     if response_code == 200:
         if Player.query.get(playertag):
-            #print("player found in Db")
+            print("player found in Db")
             return 200
         else:
-            #print("No Player found")
+            print("No Player found")
             return 201
     else:
         print("Invalid Key")

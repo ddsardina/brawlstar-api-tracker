@@ -1,4 +1,5 @@
 from myproject import db
+from myproject import app
 
 class Player(db.Model):
 
@@ -22,3 +23,6 @@ class Player(db.Model):
     
     def __repr__(self):
         return f"Tag is {self.playertag}, Name is {self.playername} and trophy count is {self.trophies}"
+
+with app.app_context():
+    db.create_all()
