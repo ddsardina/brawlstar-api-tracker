@@ -5,3 +5,6 @@ key = "Bearer "
 ##dbpass var is the Postgresql password and is imported in __init__.py
 ##Used only for local PSQL instances 
 dbpass = ""
+
+# Optional, currently using for AWS RDS
+dburl = ""
