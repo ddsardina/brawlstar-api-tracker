@@ -15,7 +15,7 @@ export const BSProvider = ({children}) => {
     const searchUser = async (text) => {
         setLoading()
 
-        const response = await fetch(`user/${text}`, {
+        const response = await fetch(`api/user/${text}`, {
             method: 'GET'
         })
 

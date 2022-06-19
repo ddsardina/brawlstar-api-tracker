@@ -33,9 +33,9 @@ class PlayerBattleLog(Resource):
         return log, 201
 
 
-api.add_resource(AllUsers,'/all/users')
-api.add_resource(UserResource, '/user/<string:playertag>')
-api.add_resource(PlayerBattleLog, '/battles/<string:playertag>')
+api.add_resource(AllUsers,'/api/all/users')
+api.add_resource(UserResource, '/api/user/<string:playertag>')
+api.add_resource(PlayerBattleLog, '/api/battles/<string:playertag>')
 
 
 if __name__ == '__main__':
