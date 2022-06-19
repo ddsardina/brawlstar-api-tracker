@@ -70,7 +70,7 @@ def update_player(playertag):
     db.session.commit()
     return player.json(), 200
 
-# Function used by pull_player
+# Function used by pull_player & update_player
 # Makes request and formats
 def player_stats(playertag):
     player_url = url + playertag
@@ -81,7 +81,10 @@ def player_stats(playertag):
     victories3v3 = int(response['3vs3Victories'])
     victoriesSolo = int(response['soloVictories'])
     victoriesDuo = int(response['duoVictories'])
-    club = response['club']['name']
+    try:
+        club = response['club']['name']
+    except(KeyError):
+        club = None
     stats = {
         'name': name,
         'trophies': trophies,
