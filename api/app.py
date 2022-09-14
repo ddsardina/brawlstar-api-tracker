@@ -1,7 +1,8 @@
 from myproject import app,db,api
 from flask_restful import Resource
 from myproject.models import Player
-from myproject.requester import battlelogpull, pull_player, update_player
+from myproject.requester import pull_player, update_player
+from myproject.mongofunc import battlesToDB, battlelogpull
 
 #API endpoint to get all users
 class AllUsers(Resource):
@@ -28,9 +29,16 @@ class UserResource(Resource):
 
 #API endpoint for battlelog
 class PlayerBattleLog(Resource):
-    def put(self,playertag):
+
+    def post(self,playertag):
         log = battlelogpull(playertag)
         return log, 201
+
+    def put(self,playertag):
+        log = battlesToDB(playertag)
+        return log, 201
+    
+
 
 
 api.add_resource(AllUsers,'/api/all/users')

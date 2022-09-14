@@ -6,6 +6,8 @@ services:
         restart: always
         ports:
             - 5000:5000
+        networks:
+            - brawlstars-app
     app:
         build:
             context: ./app
@@ -21,6 +23,11 @@ services:
         depends_on:
             - api
             - app
+        networks:
+            - brawlstars-app
 
+networks:
+    brawlstars-app:
+        driver: bridge
 volumes: 
     react_build:
