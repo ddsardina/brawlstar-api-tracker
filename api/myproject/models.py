@@ -62,17 +62,23 @@ class BattleLog(db.Model):
     match2 = db.Column(db.String(10))
     match3 = db.Column(db.String(10))
     result = db.Column(db.String(10))
+    match1id = db.Column(db.String(25))
+    match2id = db.Column(db.String(25))
+    match3id = db.Column(db.String(25))
     brawler = db.Column(db.String(25))
     map = db.Column(db.String(50))
     gamemode = db.Column(db.String(25))
     player_id = db.Column(db.String,ForeignKey("players.playertag"))
 
-    def __init__(self,battletime,match1,match2,match3,result,brawler,map,gamemode,player_id):
+    def __init__(self,battletime,match1,match2,match3,result,match1id,match2id,match3id,brawler,map,gamemode,player_id):
         self.battletime = battletime
         self.match1 = match1
         self.match2 = match2
         self.match3 = match3
         self.result = result
+        self.match1id = match1id
+        self.match2id = match2id
+        self.match3id = match3id
         self.brawler = brawler
         self.map = map
         self.gamemode = gamemode
